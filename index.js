@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var port = process.env.PORT || process.env['app_port'] || 7006;
+var port = process.env.PORT || process.env['app_port'] || 7007;
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/client/device/index.html');
