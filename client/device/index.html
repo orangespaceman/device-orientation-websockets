@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      Device Orientation - Websockets
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <meta name="theme-color" content="#000000">
+  </head>
+
+  <body>
+
+    <main class="Wrapper">
+
+      <div class="Scene">
+        <div class="DeviceContainer">
+          <div class="Device">
+            <div class="Device-front">
+              <form class="Name">
+                <label class="Name-label" for="name">What is your name?</label>
+                <input class="Name-input" type="text" name="name" value="" />
+                <button class="Name-button">Go</button>
+              </form>
+            </div>
+            <div class="Device-back"></div>
+            <div class="Device-left"></div>
+            <div class="Device-right"></div>
+            <div class="Device-top"></div>
+            <div class="Device-bottom"></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <div class="Debug">
+      <p class="Debug-block">
+        <span class="Debug-title">α</span>
+        <strong class="Debug-value Debug-value--alpha"></strong>
+      </p>
+      <p class="Debug-block">
+        <span class="Debug-title">β</span>
+        <strong class="Debug-value Debug-value--beta"></strong>
+      </p>
+      <p class="Debug-block">
+        <span class="Debug-title">γ</span>
+        <strong class="Debug-value Debug-value--gamma"></strong>
+      </p>
+      <p class="Debug-block">
+        <span class="Debug-title">α'</span>
+        <strong class="Debug-value Debug-value--alphaModified"></strong>
+      </p>
+      <p class="Debug-block">
+        <span class="Debug-title">β'</span>
+        <strong class="Debug-value Debug-value--betaModified"></strong>
+      </p>
+      <p class="Debug-block">
+        <span class="Debug-title">γ'</span>
+        <strong class="Debug-value Debug-value--gammaModified"></strong>
+      </p>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../assets/js/device.js"></script>
+    <script src="https://orangespaceman.github.io/lab-badge/lab-badge.min.js"></script>
+
+  </body>
+</html>

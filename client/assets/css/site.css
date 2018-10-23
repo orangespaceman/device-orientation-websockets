@@ -1,0 +1,230 @@
+/* elements */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #506080;
+  font-family: Georgia, serif;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+/* Wrapper */
+
+.Wrapper {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+body.isHost .Wrapper::after {
+  content: "";
+  flex: auto;
+}
+
+/* 3d */
+
+.Scene {
+  flex: 1 0 33%;
+}
+
+.Scene.isTemplate {
+  display: none;
+}
+
+.DeviceContainer {
+  background: rgba(0,0,0,0.1);
+  box-shadow: 0 0 25px 0 rgba(0,0,0,0.1);
+  position: relative;
+  margin: 0 auto;
+  width: 75%;
+  height: 100%;
+  perspective: 1000px;
+  transform: translate(0) scale(0.6);
+}
+
+.Device {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: scale(2.8);
+  transform-origin: center center;
+  transition: transform 1s;
+}
+
+.Device.hasName {
+  transform: scale(1);
+}
+
+.Device.hasInited {
+  transition: none;
+}
+
+body.isHost .Device {
+  transform: scale(1) rotateX(30deg) rotateY(30deg) rotateZ(-30deg);
+  transition: none;
+}
+
+.Device > * {
+  position: absolute;
+}
+
+.Device-front {
+  width: 100%;
+  height: 100%;
+  background: #f90;
+  transform: translateX(0) rotateY(0deg) translateZ(15px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Device-back {
+  width: 100%;
+  height: 100%;
+  background: #fc0;
+  transform: translateX(0) translateZ(-15px);
+}
+
+.Device-left {
+  width: 30px;
+  height: 100%;
+  background: #f60;
+  transform: translateX(-15px) rotateY(-90deg);
+  backface-visibility: hidden;
+}
+
+.Device-right {
+  width: 30px;
+  height: 100%;
+  background: #f60;
+  transform: rotateY(90deg);
+  backface-visibility: hidden;
+  right: -15px;
+}
+
+.Device-top {
+  width: 100%;
+  height: 30px;
+  background: #f30;
+  transform: rotateX(90deg) translateZ(15px);
+  backface-visibility: hidden;
+}
+
+.Device-bottom {
+  width: 100%;
+  height: 30px;
+  background: #f30;
+  transform: rotateX(-90deg);
+  backface-visibility: hidden;
+  bottom: -15px;
+}
+
+
+/* Name form */
+
+.Name {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.Name-label {
+  display: block;
+  font-size: 8px;
+  margin-bottom: 5px;
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.Device.hasName .Name-label {
+  opacity: 0;
+}
+
+.Name-input {
+  background: none;
+  border: none;
+  border-bottom: 1px dashed #036;
+  color: #036;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  margin-bottom: 5px;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+
+  transition: border-bottom-color 1s;
+}
+
+.Device.hasName .Name-input {
+  border-bottom-color: transparent;
+}
+
+.Name-input:focus {
+  outline: none;
+}
+
+.Name-button {
+  border: none;
+  color: #fff;
+  background: #036;
+  font-family: Georgia, serif;
+  font-size: 8px;
+  padding: 2px 10px;
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.Device.hasName .Name-button {
+  opacity: 0;
+}
+
+/* host */
+
+.NameText {
+  font-size: 32px;
+}
+
+
+/* debug */
+
+.Debug {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0.2rem;
+  z-index: 3;
+  font-size: 0.75rem;
+  text-align: left;
+  opacity: 0;
+}
+
+.Debug.isDisplayed {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.Debug-block {
+  margin: 0;
+}
